@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+<script>
+function validate(){
+ let role=document.getElementById("role").value;
+ let phone=document.getElementById("phone").value;
+ if(role=="user" && !/^[0-9]{10}$/.test(phone)){
+   alert("Phone must be 10 digits"); return false;
+ }
+ return true;
+}
+</script>
+</head>
+<body>
+
+<form action="login.php" method="post" onsubmit="return validate()">
+<h2> Electricity bill generation system</h2>
+<h2>Login</h2>
+
+<select name="role" id="role" required>
+<option value="">Select Role</option>
+<option value="admin">Admin</option>
+<option value="supervisor">Supervisor</option>
+<option value="user">User</option>
+</select>
+
+<input name="username" placeholder="Username / Service Number" required>
+<input type="password" name="password" placeholder="Password (Admin/Supervisor)">
+
+<button>Login</button>
+</form>
+
+</body>
+</html>
